@@ -1,228 +1,189 @@
-# Global-Solution-2025-1
-Desenho do fluxograma ou diagrama da arquitetura (Machine Learning + ESP32 + sensor + interface, se houver)
+# 🔥 **FireGuard - Sistema Inteligente de Prevenção de Incêndios Florestais**
+
+**Global Solution 2025 - 1**
 
 ---
 
-## 📄 **Estrutura Sugerida para o PDF da Entrega**
+## 1. 🏷️ **Capa**
 
-### 1. **Capa**
-
-* Nome do projeto
-* Nome completo de todos os integrantes
-* Nome da instituição e disciplina
-
----
-
-### 2. **Introdução**
-
-* Contextualização do problema
-* Qual é o desafio que o projeto resolve?
-* Justificativa da escolha do tema
-* Integração entre Machine Learning e IoT (mencionar ESP32 e sensor)
+* **Projeto:** FireGuard - Sistema Inteligente de Prevenção de Incêndios Florestais
+* **Integrantes:** \[Nomes dos participantes]
+* **Instituição:** \[Nome da instituição]
+* **Disciplina:** Global Solution 2025
 
 ---
 
-### 3. **Desenvolvimento**
+## 2. 📖 **Introdução**
 
-🔧 **Arquitetura da Solução:**
+Os incêndios florestais têm se intensificado nos últimos anos, gerando impactos ambientais, econômicos e sociais significativos. As principais causas incluem mudanças climáticas, ação humana e períodos prolongados de seca.
 
-* Desenho do fluxograma ou diagrama da arquitetura (Machine Learning + ESP32 + sensor + interface, se houver)
+O desafio do nosso projeto é desenvolver uma solução capaz de **prever e detectar incêndios florestais antes que eles se tornem incontroláveis**, utilizando uma combinação de sensores ambientais, microcontroladores (ESP32) e algoritmos de Machine Learning.
 
-🔬 **Machine Learning:**
+### 🎯 **Justificativa**
 
-* Tipo de modelo usado (ex.: regressão, classificação, clustering)
-* Ferramentas: Python, Scikit-learn, TensorFlow, etc.
-* Descrição do dataset (real ou simulado)
-* Processamento dos dados, treinamento e testes
+* Preservar o meio ambiente, a fauna, a flora e vidas humanas;
+* Reduzir os custos e danos associados ao combate de incêndios;
+* Utilizar tecnologia acessível e de baixo custo para monitoramento contínuo.
 
-📡 **ESP32 + Sensor:**
+### 🔗 **Integração IoT + Machine Learning**
 
-* Descrição do sensor usado (temperatura, umidade, gás, luminosidade, etc.)
-* Explicação da comunicação (Wi-Fi, MQTT, HTTP, etc.)
-* Código de leitura do sensor e envio dos dados para o ML (local ou em nuvem)
+Nosso sistema une:
 
-🖥️ **Integração:**
-
-* Como o ESP32 envia dados para o modelo de Machine Learning (API, banco de dados, conexão serial, etc.)
-* Caso o ML rode na nuvem/local, como os dados são tratados em tempo real
+* 🔥 **Sensores** (temperatura, umidade, gases e fumaça);
+* 🔌 **ESP32** como unidade de coleta e transmissão de dados;
+* 🧠 **Machine Learning** para análise e predição de risco;
+* 📲 Interface de alertas para moradores e autoridades.
 
 ---
 
-### 4. **Resultados Esperados**
+## 3. 🏗️ **Desenvolvimento**
 
-* Funcionamento esperado do sistema
-* Benefícios da solução (eficiência, automação, predição, sustentabilidade, etc.)
-* Prints do código rodando, do ESP32 funcionando e da integração acontecendo
+### 🔧 **Arquitetura da Solução**
 
----
-
-### 5. **Conclusões**
-
-* Avaliação dos desafios superados
-* Limitações do MVP
-* Melhorias futuras
-
----
-
-### 6. **Anexos**
-
-* Códigos comentados (ML e ESP32)
-* Diagramas elétricos (circuito do ESP32 com o sensor)
-* Link do vídeo (YouTube como **“Não Listado”**)
-* Referências (se houver)
-
----
-
-## 🚀 **Roteiro para o Vídeo (Até 5 Minutos)**
-
-1. **Introdução (até 30 segundos)**
-
-* Nome dos integrantes
-* Falar claramente: **“QUERO CONCORRER”**
-
-2. **Explicação da Integração (1-2 minutos)**
-
-* Mostre como o sensor no ESP32 coleta dados
-* Mostre como esses dados são enviados ao modelo de Machine Learning
-* Explique rapidamente qual foi o modelo usado e qual problema ele resolve
-
-3. **Demonstração Prática (2-3 minutos)**
-
-* Filme o ESP32 funcionando (dados sendo coletados)
-* Mostre na tela como o modelo de ML processa os dados e gera respostas
-* Exemplo de uso real (alertas, predições, controle, etc.)
-
-4. **Encerramento (até 30 segundos)**
-
-* Agradecimentos e reforço da proposta
-
----
-
-## 💻 **Tecnologias Permitidas**
-
-* ✔️ Machine Learning: Python (mínimo obrigatório)
-* ✔️ ESP32: C++, Arduino IDE, MicroPython ou PlatformIO
-* ✔️ Comunicação: MQTT, HTTP, WebSocket, Firebase, API REST
-* ✔️ Outras linguagens além de Python são bem-vindas (para dashboards, front-end, back-end, etc.), sem prejuízo na avaliação
-
-## 🌍 **Prevenção para longos periodos de seca:**
-
-**"DryGuard: Sistema de Monitoramento e Previsão de Secas"**
-
-## 🏆 **Desafio Escolhido:**
-
-Desenvolver uma aplicação digital que utilize dados reais para prever e monitorar eventos de **seca**, oferecendo alertas e suporte à tomada de decisão para comunidades vulneráveis e agricultores.
-
----
-
-## 📑 **Estrutura do Projeto (PDF)**
-
-### 1. **Introdução**
-
-Nos últimos anos, eventos de seca têm se tornado mais intensos e frequentes, impactando diretamente a agricultura, a disponibilidade de água e a segurança alimentar. Este projeto visa desenvolver uma solução inteligente que ajude na **previsão, monitoramento e mitigação dos efeitos da seca**, utilizando dados de satélite, sensores ambientais e algoritmos de machine learning.
-
----
-
-### 2. **Desenvolvimento**
-
-#### 🔍 **Escolha dos Dados**
-
-* Fonte principal: [https://disasterscharter.org/](https://disasterscharter.org/) (imagens de satélite e relatórios sobre secas).
-* Dados complementares: históricos climáticos, umidade do solo, precipitação, temperatura e índices de vegetação (NDVI).
-
-#### 🧠 **Machine Learning em Python**
-
-* Algoritmo: **Regressão Linear, Random Forest ou XGBoost** para prever risco de seca baseado em:
-
-  * Dados históricos de precipitação;
-  * Umidade relativa;
-  * Índice de vegetação (NDVI);
-  * Temperatura média.
-
-* Pipeline de ML:
-
-  1. Coleta e tratamento dos dados;
-  2. Treinamento do modelo preditivo;
-  3. Validação;
-  4. Geração de alertas.
-
-#### 🖥️ **Aplicação em Python**
-
-* Interface via terminal, web (Streamlit) ou aplicativo local.
-* Permite entrada de dados manuais ou automáticos (sensores ESP32).
-* Gera alertas de risco: **Baixo, Moderado, Alto ou Crítico**.
-
-#### 🔗 **ESP32 + Sensores**
-
-* Sensores:
-
-  * **DHT11/DHT22:** umidade do ar e temperatura;
-  * **Sensor de umidade do solo:** mede o nível de umidade diretamente no ambiente agrícola;
-  * **Sensor de pressão barométrica (opcional).**
-
-* Funcionalidade:
-
-  * Coleta de dados locais em tempo real;
-  * Envio dos dados via Wi-Fi/MQTT para a aplicação Python;
-  * Geração de alertas físicos (LED, buzzer) e digitais (notificação na interface).
-
-#### 🗺️ **Arquitetura do Sistema**
+#### 🗺️ **Diagrama da Arquitetura**
 
 ```
-[Satélite + Dados Históricos] ---> [ML em Python] ---> [Previsão]
-                      ↑                         ↓
-                 [Sensores ESP32] <------> [Interface Usuário]
+[Sensores no Ambiente]
+   ↓
+[ESP32] ---> [API/MQTT] ---> [Servidor com ML em Python]
+                                     ↓
+                         [Análise + Predição de Risco]
+                                     ↓
+              [Interface: Dashboard + Alertas (E-mail, LED, Buzzer)]
 ```
 
----
+#### 🎨 **Descrição dos Componentes**
 
-### 3. **Resultados Esperados**
+* **Sensores:**
 
-* Sistema capaz de:
+  * 🔥 Temperatura e Umidade (DHT11/DHT22)
+  * 🔥 Gás e Fumaça (MQ-2, MQ-135)
 
-  * Monitorar em tempo real a umidade do solo, temperatura e umidade relativa;
-  * Prever riscos de seca com antecedência de dias ou semanas;
-  * Gerar alertas que ajudem agricultores e gestores públicos;
-  * Suportar decisões como irrigação antecipada, mudança de cultivo ou alerta de risco hídrico.
+* **ESP32:**
 
-* Impacto esperado:
+  * Coleta dados dos sensores;
+  * Envia dados via Wi-Fi (MQTT ou HTTP) para o servidor.
 
-  * **Mitigação de perdas na agricultura;**
-  * **Melhor gestão de recursos hídricos;**
-  * **Apoio a comunidades vulneráveis.**
+* **Servidor com Machine Learning (Python):**
 
----
+  * Recebe dados dos sensores em tempo real;
+  * Executa modelo preditivo para avaliar risco de incêndio;
+  * Gera alertas com níveis: **Baixo, Moderado, Alto, Crítico**.
 
-### 4. **Conclusão**
+* **Interface:**
 
-O **DryGuard** é uma solução inteligente, baseada em dados reais, que conecta tecnologia, ciência de dados e IoT para enfrentar os desafios crescentes das secas. A integração entre sensores físicos e modelos preditivos permite uma resposta ágil e eficiente, contribuindo diretamente para a sustentabilidade e a segurança alimentar.
-
----
-
-## 🔌 **Tecnologias e Ferramentas Usadas**
-
-* **Python:** Pandas, Scikit-Learn, Matplotlib, Streamlit.
-* **ESP32:** IDE Arduino ou MicroPython.
-* **Sensores:** DHT11/DHT22, Umidade do Solo.
-* **Banco de Dados:** SQLite ou Firebase (opcional).
-* **Comunicação:** MQTT, HTTP Requests, Wi-Fi.
+  * Dashboard Web (opcional - Streamlit);
+  * Alertas locais (buzzer, LED no ESP32);
+  * Alertas digitais (e-mail, SMS ou notificação no dashboard).
 
 ---
 
-## 🎥 **Roteiro do Vídeo**
+### 🧠 **Machine Learning**
 
-1. Nome do grupo + “**QUERO CONCORRER**”;
-2. Problema abordado (seca);
-3. Demonstração dos sensores funcionando;
-4. Funcionamento do modelo de Machine Learning (prevendo seca);
-5. Integração dos dados com alertas;
-6. Encerramento com benefícios e impacto do projeto.
+* **Modelo:** Classificação (Random Forest ou Regressão Logística)
+* **Objetivo:** Classificar o nível de risco de incêndio com base em:
+
+  * Temperatura;
+  * Umidade do ar;
+  * Concentração de gases (fumaça, CO₂, CO).
+
+#### ⚙️ **Ferramentas:**
+
+* Python (Pandas, Scikit-Learn, NumPy, Streamlit);
+* Dataset real ou simulado com base em:
+
+  * Dados de estações meteorológicas;
+  * Dados de incêndios passados.
+
+#### 🔄 **Pipeline:**
+
+1. **Coleta:** Dados do ESP32 ou datasets históricos;
+2. **Pré-processamento:** Limpeza e padronização dos dados;
+3. **Treinamento:** Com algoritmos de classificação;
+4. **Validação:** Testes de precisão, recall e F1-score;
+5. **Deploy:** API local ou na nuvem para receber dados e retornar risco.
 
 ---
 
-## 💡 **Dicas para Garantir Alta Nota e Concorrer ao Pódio**
+### 📡 **ESP32 + Sensores**
 
-* Mostre claramente a integração entre ML, Banco de Dados e ESP32;
-* Faça uma boa visualização dos dados (gráficos, mapas, dashboards);
-* Teste todos os sensores e o código antes de gravar;
-* No PDF, adicione **diagramas, prints do código, fotos do protótipo** e uma explicação visual da arquitetura.
+* **Sensores utilizados:**
+
+  * DHT11/DHT22 → Temperatura e Umidade;
+  * MQ-2/MQ-135 → Fumaça e Gases inflamáveis.
+
+* **Comunicação:**
+
+  * Via Wi-Fi, utilizando protocolos MQTT ou HTTP.
+
+* **Fluxo de Dados:**
+
+  1. Leitura periódica dos sensores (ex.: a cada 5 minutos);
+  2. Envio dos dados para a API do servidor com ML;
+  3. Recebimento da resposta (nível de risco);
+  4. Acionamento de alertas locais (LED, buzzer) se o risco for alto ou crítico.
+
+---
+
+### 🖥️ **Integração Geral**
+
+* O ESP32 atua como cliente, coletando dados dos sensores e enviando para o servidor Python.
+* O servidor executa o modelo treinado e retorna uma resposta com o nível de risco.
+* A resposta pode ser exibida em:
+
+  * Painéis (Streamlit);
+  * Aplicativos;
+  * Alertas físicos no próprio dispositivo.
+
+---
+
+## 4. 🚀 **Resultados Esperados**
+
+### ✅ **Funcionamento Esperado:**
+
+* Monitoramento ambiental em tempo real;
+* Detecção de condições favoráveis ao início de incêndios;
+* Geração de alertas imediatos para prevenção.
+
+### 🌟 **Benefícios da Solução:**
+
+* Eficiência no combate preventivo;
+* Proteção ambiental e social;
+* Redução dos custos operacionais;
+* Sistema de baixo custo, escalável e replicável.
+
+### 📸 **Evidências:**
+
+* Prints dos dashboards;
+* Fotos do ESP32 com sensores funcionando;
+* Prints dos alertas acionados;
+* Print do modelo de ML rodando e processando dados.
+
+---
+
+## 5. 🔍 **Conclusão**
+
+O **FireGuard** demonstra como a integração de IoT e Machine Learning pode transformar a prevenção de desastres ambientais. Apesar dos desafios técnicos na comunicação e calibragem dos sensores, o MVP entrega resultados promissores.
+
+### 🚧 **Limitações:**
+
+* Acurácia dependente da qualidade dos sensores;
+* Latência na transmissão dependendo da rede Wi-Fi;
+* Dataset inicial pode ser limitado, precisando de mais dados reais para aumentar a precisão.
+
+### 🔥 **Melhorias Futuras:**
+
+* Integração com imagens de satélite (NDVI, MODIS);
+* Uso de LoRa para comunicação de longa distância em áreas sem Wi-Fi;
+* Dashboard mobile para alertas mais rápidos;
+* Inclusão de IA embarcada no próprio ESP32 (TinyML).
+
+---
+
+## 6. 📎 **Anexos**
+
+* ✔️ Códigos comentados (ESP32 e Python);
+* ✔️ Diagramas elétricos do circuito (ESP32 + sensores);
+* ✔️ Diagrama da arquitetura do sistema;
+* ✔️ Link do vídeo de demonstração (**Não listado no YouTube**);
+* ✔️ Referências de datasets e bibliografia técnica.
