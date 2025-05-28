@@ -40,7 +40,7 @@ env/
 *.tmp
 
 # Arquivos CSV ou dados gerados (opcional)
-*.csv
+
 
 # Builds de pacotes Python
 *.egg-info/
