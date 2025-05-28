@@ -52,6 +52,80 @@ Nosso sistema une:
               [Interface: Dashboard + Alertas (E-mail, LED, Buzzer)]
 ```
 
+###### **1. Fluxo de Dados** 
+
+1. **Coleta de Dados:**
+
+   * O **ESP32** realiza leituras periódicas de sensores de umidade do solo, temperatura, nutrientes.
+   * Dados enviados via **Wi-Fi** ou **Bluetooth** para servidor ou dashboard.
+
+2. **Exibição Local:**
+
+   * Dados principais (umidade, nutrientes, status irrigação) são exibidos em tempo real no **Display LCD I2C**.
+
+3. **Transmissão e Armazenamento:**
+
+   * Dados transmitidos para um **servidor** ou **banco de dados** (MySQL, PostgreSQL ou Firebase).
+   * Utilizado para **armazenamento histórico** e **treinamento de modelo**.
+
+4. **Processamento e Predição:**
+
+   * O modelo de **Machine Learning** treinado com **Scikit-learn** recebe dados históricos.
+   * Realiza predições sobre a **necessidade de irrigação**.
+
+5. **Visualização:**
+
+   * **Streamlit** apresenta:
+
+     * Dashboard com gráficos históricos.
+     * Predições do modelo.
+     * Controles manuais de irrigação, se necessário.
+
+6. **Ação:**
+
+   * Caso a predição indique necessidade de irrigação, o **ESP32** ativa o sistema de irrigação automaticamente.
+
+7. **Monitoramento em Tempo Real:**
+
+   * **Serial Plotter** no **Wokwi** para monitorar variáveis críticas (umidade, status irrigação).
+
+---
+
+###### **Arquitetura de Dados**
+
+| Origem                | Tipo de dado                           | Destino                      |
+| --------------------- | -------------------------------------- | ---------------------------- |
+| Sensor de umidade     | Numérico contínuo                      | ESP32 → LCD → Banco de Dados |
+| Sensor de nutrientes  | Numérico contínuo                      | ESP32 → LCD → Banco de Dados |
+| Sensor de temperatura | Numérico contínuo                      | ESP32 → Banco de Dados       |
+| Predição de ML        | Binário (0 - não irrigar, 1 - irrigar) | Streamlit → ESP32            |
+| Status de irrigação   | Binário                                | LCD → Serial Plotter         |
+
+---
+
+### **Hardware Utilizado**
+
+* **ESP32** — microcontrolador central.
+* **Sensores** — umidade, nutrientes, temperatura.
+* **Display LCD I2C** — exibição local.
+* **Sistema de irrigação** — bomba d'água acionada via relé.
+* **Servidor ou PC** — para rodar modelo de ML e banco de dados.
+* **PC com Streamlit** — dashboard interativo.
+
+---
+
+### **Software Utilizado**
+
+| Componente          | Tecnologia                    |
+| ------------------- | ----------------------------- |
+| Sistema embarcado   | C/C++ para ESP32              |
+| Monitoramento       | Serial Plotter (Wokwi)        |
+| Exibição local      | LCD I2C                       |
+| Modelagem preditiva | Python com Scikit-learn       |
+| Dashboard           | Python com Streamlit          |
+| Banco de dados      | MySQL / PostgreSQL / Firebase |
+| Versionamento       | GitHub                        |
+
 #### 🎨 **Descrição dos Componentes**
 
 * **Sensores:**
@@ -86,6 +160,32 @@ Nosso sistema une:
   * Temperatura;
   * Umidade do ar;
   * Concentração de gases (fumaça, CO₂, CO).
+
+Decisão: O **modelo de Machine Learning** será executado no **servidor ou PC local**.
+
+**Justificativa:**
+
+* O **ESP32** possui limitações de memória e processamento, inadequadas para executar modelos mais complexos de ML.
+* A execução em um **servidor** ou **PC local** permite:
+
+  * Utilização de algoritmos como **Random Forest**, **Gradient Boosting**.
+  * Treinamento e inferência mais rápidos.
+  * Facilidade de integração com **Streamlit**.
+* O **ESP32** receberá apenas o resultado da predição (por exemplo, via MQTT, HTTP ou WebSocket).
+
+---
+
+##### Resumo Gráfico do Fluxo
+
+```plaintext
+[Sensores] → ESP32 → [Display LCD + Serial Plotter] 
+                          ↓
+                [Banco de Dados] ←→ [ML - Scikit-learn]
+                          ↓
+                   [Streamlit Dashboard]
+                          ↓
+                [Ativação Sistema Irrigação]
+```
 
 #### ⚙️ **Ferramentas:**
 
