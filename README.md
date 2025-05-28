@@ -187,7 +187,7 @@ Decisão: O **modelo de Machine Learning** será executado no **servidor ou PC l
                 [Ativação Sistema Irrigação]
 ```
 
-#### ⚙️ **Ferramentas:**
+##### **Ferramentas:**
 
 * Python (Pandas, Scikit-Learn, NumPy, Streamlit);
 * Dataset real ou simulado com base em:
@@ -195,7 +195,7 @@ Decisão: O **modelo de Machine Learning** será executado no **servidor ou PC l
   * Dados de estações meteorológicas;
   * Dados de incêndios passados.
 
-#### 🔄 **Pipeline:**
+##### **Pipeline:**
 
 1. **Coleta:** Dados do ESP32 ou datasets históricos;
 2. **Pré-processamento:** Limpeza e padronização dos dados;
