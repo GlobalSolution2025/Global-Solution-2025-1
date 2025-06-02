@@ -152,16 +152,92 @@ Nosso sistema une:
 
 ---
 
-### 🧠 **Machine Learning**
+###  **Machine Learning**
 
-* **Modelo:** Classificação (Random Forest ou Regressão Logística)
-* **Objetivo:** Classificar o nível de risco de incêndio com base em:
+#### Tabelas — Modelos de Machine Learning para o FireGuard
 
-  * Temperatura;
-  * Umidade do ar;
-  * Concentração de gases (fumaça, CO₂, CO).
+---
 
-Decisão: O **modelo de Machine Learning** será executado no **servidor ou PC local**.
+##### Modelos Recomendados
+
+| Modelo                       | Vantagens                                                       | Desvantagens                                       | Aplicação                                  |
+| ---------------------------- | --------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------ |
+| Random Forest                | Robusto, boa generalização, interpreta variáveis importantes    | Pode ser mais lento com muitos dados               | Classificação multinível de risco          |
+| Regressão Logística          | Simples, rápido, eficiente para classificações binárias         | Pode ter baixa precisão em relações não-lineares   | Classificação binária: risco ou não        |
+| Gradient Boosting (XGBoost)  | Alta precisão, bom para dados complexos                         | Mais lento para treinar, mais difícil de ajustar   | Classificação multinível de risco          |
+| K-Nearest Neighbors (KNN)    | Fácil implementação, funciona bem com poucos dados              | Não escala bem com grandes datasets                | Classificação baseada em vizinhos próximos |
+| Support Vector Machine (SVM) | Eficiente em alta dimensão, suporta classificações não-lineares | Difícil de ajustar e interpretar, sensível a ruído | Classificação com dados complexos          |
+
+---
+
+#### Variáveis de Entrada (Features)
+
+| Variável                    | Tipo       | Origem                |
+| --------------------------- | ---------- | --------------------- |
+| Temperatura do ar (°C)      | Numérico   | Sensor DHT11/DHT22    |
+| Umidade relativa (%)        | Numérico   | Sensor DHT11/DHT22    |
+| Concentração de gases (ppm) | Numérico   | Sensor MQ-2 ou MQ-135 |
+| Fumaça (ppm)                | Numérico   | Sensor MQ-2 ou MQ-135 |
+| Histórico meteorológico     | Numérico   | Dados externos        |
+| Hora do dia, data           | Categórico | Sistema interno       |
+
+---
+
+####  Variável de Saída (Target)
+
+| Saída             | Tipo                     | Valores                        |
+| ----------------- | ------------------------ | ------------------------------ |
+| Risco de incêndio | Classificação            | Baixo, Moderado, Alto, Crítico |
+|                   | ou Classificação Binária | 0: Sem risco, 1: Com risco     |
+
+---
+
+#### Pipeline de Machine Learning
+
+| Etapa             | Descrição                                          |
+| ----------------- | -------------------------------------------------- |
+| Coleta de dados   | Dados do ESP32 ou datasets públicos                |
+| Pré-processamento | Limpeza, normalização, engenharia de atributos     |
+| Treinamento       | Divisão em treino, validação e teste               |
+| Avaliação         | Métricas: Accuracy, Precision, Recall, F1, AUC-ROC |
+| Deploy            | API local ou na nuvem, integração com ESP32        |
+
+---
+
+#### Bibliotecas Recomendadas (Python)
+
+| Categoria             | Biblioteca                      |
+| --------------------- | ------------------------------- |
+| Modelos ML            | Scikit-learn, XGBoost, LightGBM |
+| Manipulação de Dados  | Pandas, NumPy                   |
+| Visualização          | Matplotlib, Seaborn             |
+| Dashboard             | Streamlit                       |
+| Comunicação com ESP32 | Flask, FastAPI, MQTT libraries  |
+| Versionamento         | GitHub                          |
+
+---
+
+#### Critérios para Escolha do Modelo Final
+
+| Critério                          | Importância |
+| --------------------------------- | ----------- |
+| Acurácia                          | Alta        |
+| Velocidade de inferência          | Média/Alta  |
+| Capacidade de interpretação       | Alta        |
+| Facilidade de integração (Python) | Alta        |
+| Robustez com dados ruidosos       | Alta        |
+
+---
+
+#### Resultado Esperado
+
+| Resultado                                             | Benefício                               |
+| ----------------------------------------------------- | --------------------------------------- |
+| Classificação automática do risco de incêndio         | Ações preventivas e resposta rápida     |
+| Sistema de alertas preventivos                        | Proteção ambiental e social             |
+| Base para futuras integrações com imagens de satélite | Expansão do sistema para maior precisão |
+
+---
 
 **Justificativa:**
 
