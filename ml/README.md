@@ -55,4 +55,5 @@ project_name/
 ├── requirements.txt               # Dependências do projeto
 ├── README.md                      # Documentação do projeto
 └── .gitignore                     # Arquivos/formatos ignorados pelo Git
+
 ```
