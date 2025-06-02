@@ -1,0 +1,33 @@
+
+Metadados do Dataset de Queimadas
+
+Descrição:
+Este dataset contém variáveis ambientais e meteorológicas coletadas por sensores para monitoramento e detecção de focos de queimadas.
+
+Variáveis:
+1. latitude: Coordenada geográfica (graus decimais).
+2. longitude: Coordenada geográfica (graus decimais).
+3. data_hora: Data e hora da coleta (YYYY-MM-DD HH:MM:SS).
+4. temperatura_ar: Temperatura do ar em graus Celsius.
+5. umidade_relativa: Umidade relativa do ar (%).
+6. velocidade_vento: Velocidade do vento (m/s).
+7. direcao_vento: Direção do vento (graus).
+8. precipitacao: Precipitação acumulada (mm).
+9. indice_seca: Índice representando condição de seca (0 a 1).
+10. temperatura_superficie: Temperatura da superfície (°C).
+11. radiacao_solar: Radiação solar incidente (W/m²).
+12. concentracao_CO: Concentração de monóxido de carbono (ppm).
+13. concentracao_CO2: Concentração de dióxido de carbono (ppm).
+14. concentracao_PM25: Concentração de material particulado PM2.5 (µg/m³).
+15. frp: Potência radiativa do fogo (MW).
+16. intensidade_foco: Intensidade do foco detectado ('nenhuma', 'baixa', 'media', 'alta').
+17. tipo_cobertura_solo: Tipo de cobertura do solo ('floresta', 'pastagem', 'solo exposto').
+18. indice_vegetacao_ndvi: Índice de vegetação NDVI (0 a 1).
+19. deteccao_foco: Detecção de foco de incêndio (1 = sim, 0 = não).
+
+Fonte dos Dados:
+Simulação para fins acadêmicos e de desenvolvimento de modelos de machine learning.
+
+Licença:
+Uso livre para fins acadêmicos e de pesquisa.
+
