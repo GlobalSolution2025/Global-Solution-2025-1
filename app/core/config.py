@@ -1,13 +1,20 @@
-import os
-from pathlib import Path
+from pydantic import BaseSettings
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
-# Diretório base onde está rodando o código
-BASE_DIR = Path(__file__).resolve().parent
+class Settings(BaseSettings):
+    SQLALCHEMY_DATABASE_URI: str = "sqlite:///./test.db"
+    
+    class Config:
+        env_file = ".env"
 
-# Caminho seguro para o banco de dados
-db_file = BASE_DIR / "test.db"
+settings = Settings()
 
-# String de conexão
-DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite:///{db_file}")
-print(DATABASE_URL)
+# Criando o engine
+engine = create_engine(
+    settings.SQLALCHEMY_DATABASE_URI,
+    connect_args={"check_same_thread": False} if "sqlite" in settings.SQLALCHEMY_DATABASE_URI else {}
+)
 
+# Criando a sessão
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

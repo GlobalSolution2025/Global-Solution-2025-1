@@ -1,16 +1,23 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from pydantic import BaseSettings
+import os
 
-from app.core.config import DATABASE_URL
+# Carregar configurações do arquivo .env
+class Settings(BaseSettings):
+    SQLALCHEMY_DATABASE_URI: str = "sqlite:///./test.db"  # Defina o caminho para o banco de dados SQLite
 
+    class Config:
+        env_file = ".env"
+
+settings = Settings()
+print(f"Using database URI: {settings.SQLALCHEMY_DATABASE_URI}")
+
+# Criando o engine para SQLite
 engine = create_engine(
-    DATABASE_URL, connect_args={"check_same_thread": False}
+    settings.SQLALCHEMY_DATABASE_URI,
+    connect_args={"check_same_thread": False}  # Necessário para SQLite em multithreading
 )
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+# Criando a sessão
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
