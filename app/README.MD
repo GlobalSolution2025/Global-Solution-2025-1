@@ -1,35 +1,18 @@
 app/
-├── __init__.py
-├── main.py
-├── api/
+├── sensor_api/
 │   ├── __init__.py
-│   ├── deps.py
-│   └── routes/
-│       ├── __init__.py
-│       └── sensor.py
-├── core/
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── sensor/
 │   ├── __init__.py
-│   └── config.py
-├── crud/
-│   ├── __init__.py
-│   └── sensor.py
-├── db/
-│   ├── __init__.py
-│   ├── base.py
-│   ├── models/
-│   │   ├── __init__.py
-│   │   └── sensor.py
-│   └── session.py
-├── schemas/
-│   ├── __init__.py
-│   └── sensor.py
-└── utils/
-    ├── __init__.py
-    └── security.py
-alembic/
-├── versions/
-├── env.py
-└── script.py.mako
-alembic.ini
-requirements.txt
-.gitignore
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── serializers.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── manage.py
+└── requirements.txt
