@@ -32,4 +32,4 @@ def get_sensor_data_renamed(url="https://api-sensor-e3edd8233f2e.herokuapp.com/a
 
 # Exemplo de uso
 dados_renomeados = get_sensor_data_renamed()
-print(type(dados_renomeados))
+print(dados_renomeados)

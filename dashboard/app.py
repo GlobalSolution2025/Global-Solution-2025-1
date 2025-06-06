@@ -1,9 +1,20 @@
 import streamlit as st
 import plotly.graph_objects as go
+import time
+from api_sensor.api_request.api_get_ultimo_dado import get_sensor_data_renamed
 
+# Configuração da página
 st.set_page_config(page_title="Fire Monitoring", layout="wide")
 
-# Função para criar o gauge
+# Intervalo de atualização
+refresh_interval = st.sidebar.number_input("⏱️ Intervalo de atualização (segundos)", min_value=5, max_value=300, value=10)
+
+# Último dado do sensor
+ultimo_dado = get_sensor_data_renamed()
+if ultimo_dado:
+    st.sidebar.markdown(f"**Último dado recebido:** {ultimo_dado}")
+
+# Função para criar os gauges
 def create_gauge(value, title, color):
     fig = go.Figure(go.Indicator(
         mode="gauge+number",
@@ -21,7 +32,7 @@ def create_gauge(value, title, color):
     )
     return fig
 
-# Estilos
+# Estilos personalizados
 st.markdown("""
     <style>
         .main {
@@ -40,10 +51,6 @@ st.markdown("""
             display: flex;
             align-items: center;
         }
-        .icon {
-            font-size: 30px;
-            margin-right: 10px;
-        }
         .dashboard {
             border: 2px solid #4DA6FF;
             border-radius: 10px;
@@ -53,34 +60,40 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Título
+# Título principal
 st.markdown('<div class="title">🔥 Fire Monitoring</div>', unsafe_allow_html=True)
 
-# Primeira linha: Alertas e Dados
+# Linha de alertas e dados
 col1, col2 = st.columns(2)
 with col1:
     st.markdown('<div class="block">**Alerta de eventos/ocorrência**</div>', unsafe_allow_html=True)
 with col2:
     st.markdown('<div class="block">**Dados dos eventos/ocorrências**</div>', unsafe_allow_html=True)
 
-# Dashboard: qualidade do ar
+# Dashboard
 st.markdown('<div class="dashboard">', unsafe_allow_html=True)
 st.subheader("Dashboard - Qualidade do ar")
 
-# Simulação de valores
-temperatura = st.slider("Temperatura", 0, 100, 25)
-umidade = st.slider("Umidade", 0, 100, 40)
-nivel_gas = st.slider("Nível de gás/fumaça", 0, 100, 10)
+# Leitura dos dados
+temperatura = st.slider("Temperatura", 0, 100, ultimo_dado.get('temperatura_superficie', 0))
+umidade = st.slider("Umidade", 0, 100, ultimo_dado.get('umidade_relativa', 0))
+nivel_gas = st.slider("Nível de gás/fumaça", 0, 1000, ultimo_dado.get('concentracao_CO2', 0))
 
+# Exibição dos gauges
 col3, col4, col5 = st.columns(3)
-
 with col3:
     st.plotly_chart(create_gauge(temperatura, "Temperatura", "orange"), use_container_width=True)
-
 with col4:
     st.plotly_chart(create_gauge(umidade, "Umidade", "blue"), use_container_width=True)
-
 with col5:
     st.plotly_chart(create_gauge(nivel_gas, "Nível de gás/fumaça", "green"), use_container_width=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
+
+# Atualização automática
+if 'last_refresh' not in st.session_state:
+    st.session_state['last_refresh'] = time.time()
+
+if time.time() - st.session_state['last_refresh'] > refresh_interval:
+    st.session_state['last_refresh'] = time.time()
+    st.experimental_rerun()

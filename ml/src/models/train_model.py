@@ -4,7 +4,7 @@ import pandas as pd
 import joblib
 from api_sensor.api_request.api_get_ultimo_dado import get_sensor_data_renamed
 
-def main(json_input):
+def predicao(json_input):
     # Diretório raiz do projeto (2 níveis acima da pasta atual)
     raiz_projeto = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
     
@@ -29,13 +29,13 @@ def main(json_input):
     entrada_scaled = scaler.transform(entrada_df)
 
     # Fazer predição
-    predicao = modelo_carregado.predict(entrada_scaled)
+    predicao_array = modelo_carregado.predict(entrada_scaled)
 
-    # Imprime a predição (pode mudar para retornar, salvar, etc)
-    print(predicao[0])
+    # Retornar o valor da predição como inteiro
+    return int(predicao_array[0])
 
-if __name__ == "__main__":
-    dados_renomeados = get_sensor_data_renamed()
-    json_input = f'{dados_renomeados}'
+# Exemplo de uso:
+# json_entrada = '{"temperatura_superficie": 35, "umidade_relativa": 40, "concentracao_CO2": 300}'
+# resultado = predicao(json_entrada)
+# print("Predição:", resultado)
 
-    type(json_input)
