@@ -71,3 +71,4 @@ uvicorn==0.34.3
 uvloop==0.21.0
 watchfiles==1.0.5
 websockets==15.0.1
+django-heroku==0.3.1

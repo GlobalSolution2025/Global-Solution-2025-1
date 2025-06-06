@@ -115,14 +115,19 @@ temperatura = int(ultimo_dado.get('temperatura_superficie', 0))
 umidade = int(ultimo_dado.get('umidade_relativa', 0))
 nivel_gas = int(ultimo_dado.get('concentracao_CO2', 0))
 
+
+
 # Exibição dos gauges com chaves únicas
 col3, col4, col5 = st.columns(3)
 with col3:
     st.plotly_chart(create_gauge(temperatura, "Temperatura", "orange"), use_container_width=True, key="gauge_temp")
+    st.subheader("Temperatura")
 with col4:
     st.plotly_chart(create_gauge(umidade, "Umidade", "blue"), use_container_width=True, key="gauge_umid")
+    st.subheader("Umidade")
 with col5:
     st.plotly_chart(create_gauge(nivel_gas, "Nível de gás/fumaça", "green"), use_container_width=True, key="gauge_gas")
+    st.subheader("Nível de gás/fumaça")
 
 st.markdown('</div>', unsafe_allow_html=True)
 
