@@ -56,12 +56,12 @@ Nosso sistema une:
 
 1. **Coleta de Dados:**
 
-   * O **ESP32** realiza leituras periódicas de sensores de umidade do solo, temperatura, nutrientes.
+   * O **ESP32** realiza leituras periódicas de sensores de umidade do solo, temperatura e gases no ar.
    * Dados enviados via **Wi-Fi** ou **Bluetooth** para servidor ou dashboard.
 
 2. **Exibição Local:**
 
-   * Dados principais (umidade, nutrientes, status irrigação) são exibidos em tempo real no **Display LCD I2C**.
+   * Dados principais (umidade, temperatura, qualidade do ar) são exibidos em tempo real.
 
 3. **Transmissão e Armazenamento:**
 
@@ -71,7 +71,6 @@ Nosso sistema une:
 4. **Processamento e Predição:**
 
    * O modelo de **Machine Learning** treinado com **Scikit-learn** recebe dados históricos.
-   * Realiza predições sobre a **necessidade de irrigação**.
 
 5. **Visualização:**
 
@@ -79,15 +78,14 @@ Nosso sistema une:
 
      * Dashboard com gráficos históricos.
      * Predições do modelo.
-     * Controles manuais de irrigação, se necessário.
 
 6. **Ação:**
 
-   * Caso a predição indique necessidade de irrigação, o **ESP32** ativa o sistema de irrigação automaticamente.
+   * Caso a predição indique algum risco de incêncio, o **ESP32** ativa o sistema de alerta.
 
 7. **Monitoramento em Tempo Real:**
 
-   * **Serial Plotter** no **Wokwi** para monitorar variáveis críticas (umidade, status irrigação).
+   * **Serial Plotter** no **Wokwi** para monitorar variáveis críticas (umidade, temperatura, qualidade do ar).
 
 ---
 
@@ -99,16 +97,13 @@ Nosso sistema une:
 | Sensor de nutrientes  | Numérico contínuo                      | ESP32 → LCD → Banco de Dados |
 | Sensor de temperatura | Numérico contínuo                      | ESP32 → Banco de Dados       |
 | Predição de ML        | Binário (0 - não irrigar, 1 - irrigar) | Streamlit → ESP32            |
-| Status de irrigação   | Binário                                | LCD → Serial Plotter         |
 
 ---
 
 ### **Hardware Utilizado**
 
 * **ESP32** — microcontrolador central.
-* **Sensores** — umidade, nutrientes, temperatura.
-* **Display LCD I2C** — exibição local.
-* **Sistema de irrigação** — bomba d'água acionada via relé.
+* **Sensores** — umidade, temperatura.
 * **Servidor ou PC** — para rodar modelo de ML e banco de dados.
 * **PC com Streamlit** — dashboard interativo.
 
@@ -259,8 +254,6 @@ Nosso sistema une:
                 [Banco de Dados] ←→ [ML - Scikit-learn]
                           ↓
                    [Streamlit Dashboard]
-                          ↓
-                [Ativação Sistema Irrigação]
 ```
 
 ##### **Ferramentas:**
