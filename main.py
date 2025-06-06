@@ -1,10 +1,8 @@
-import streamlit as st
-import plotly.graph_objects as go
-from api_sensor.api_request.api_get_ultimo_dado import get_sensor_data_renamed
-import json
+# main.py
 
-from ml.src.models.train_model import predicao
+from dashboard.app import app
 
+<<<<<<< HEAD
 # Configuração da página
 st.set_page_config(page_title="Fire Monitoring", layout="wide")
 
@@ -130,4 +128,9 @@ with col5:
     st.subheader("Nível de gás/fumaça")
 
 st.markdown('</div>', unsafe_allow_html=True)
+=======
+if __name__ == "__main__":
+    app()
+>>>>>>> bd52d2f6d90462585b63e219e8170c777c40a087
 
+# streamlit run main.py

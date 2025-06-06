@@ -28,7 +28,7 @@
 ```
  - RM: m562869
  - E-mail: yggdrasil.git@gmail.com
- - GitHub: [@yggdrasilGit](https://github.com/yggdrasilGit
+ - GitHub: [@yggdrasilGit](https://github.com/yggdrasilGit)
 ```
 - Matheus Soares Bento da Silva
 ```
