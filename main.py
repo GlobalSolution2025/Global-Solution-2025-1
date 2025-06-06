@@ -1,6 +1,9 @@
-from fastapi import FastAPI
-from app.api.routes import user
+from api_sensor.api_request.api_get_ultimo_dado import get_sensor_data_renamed
+from ml.src.models.train_model import main
+import os
 
-app = FastAPI()
+if __name__ == "__main__":
+    dados_renomeados = get_sensor_data_renamed()
+    json_input = dados_renomeados
 
-app.include_router(user.router)
+    main(json_input)
