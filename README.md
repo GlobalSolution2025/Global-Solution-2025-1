@@ -85,7 +85,7 @@ O desafio do nosso projeto é desenvolver uma solução capaz de **prever e dete
 | Sensor de umidade     | Numérico contínuo                      | ESP32 → LCD → Banco de Dados |
 | Sensor de nutrientes  | Numérico contínuo                      | ESP32 → LCD → Banco de Dados |
 | Sensor de temperatura | Numérico contínuo                      | ESP32 → Banco de Dados       |
-| Predição de ML        | Binário (0 - alerta, 1 - normal)       | Streamlit → ESP32            |
+| Predição de ML        | Binário (0 - normal, 1 - alerta)       | Streamlit → ESP32            |
 
 
 ### Software Utilizado
@@ -240,9 +240,10 @@ O desafio do nosso projeto é desenvolver uma solução capaz de **prever e dete
 
 ---
 
-**Justificativa:**
+**Justificativa - Tecnologias :**
 
-* O **ESP32** possui limitações de memória e processamento, inadequadas para executar modelos mais complexos de ML.
+* Tanto o MQ-135 quanto o DHT22, são comumente utilizados para o monitoramento contínuo da qualidade do ar, porém de formas diferentes. 
+
 * A execução em um **servidor** ou **PC local** permite:
 
   * Utilização de algoritmos como **Random Forest**, **Gradient Boosting**.
@@ -372,11 +373,11 @@ GLOBAL-SOLUTION-2025-1/
 
 ## ▶️ Como utilizar:
 
-💾 Instalação
+###💾 Instalação
 ---
 1. clone o repositório:
 ```
-
+https://github.com/GlobalSolution2025/Global-Solution-2025-1
 ```
 2. Crie e ative um ambiente virtual (opcional, mas recomendado):
 ```
