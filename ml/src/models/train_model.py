@@ -1,5 +1,4 @@
 import os
-import sys
 import json
 import pandas as pd
 import joblib
@@ -37,6 +36,6 @@ def main(json_input):
 
 if __name__ == "__main__":
     dados_renomeados = get_sensor_data_renamed()
-    json_input = dados_renomeados
+    json_input = f'{dados_renomeados}'
 
-    main(json_input)
+    type(json_input)
