@@ -325,6 +325,14 @@ O resultado da análise é enviado para o dashboard, criado com a ferramenta Str
 
 ---
 
+## **Imagem do sensor**
+  <img src="assets/sensor_circuit_print.png">
+
+## **Imagem do dashboard**
+  <img src="assets/dashboard_print.png.png">
+
+---
+
 ## 📁 Estrutura de pastas
 
 ```bash
