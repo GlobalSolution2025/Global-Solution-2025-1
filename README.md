@@ -381,7 +381,7 @@ GLOBAL-SOLUTION-2025-1/
 
 ## ▶️ Como utilizar:
 
-###💾 Instalação
+### 💾 Instalação
 ---
 1. clone o repositório:
 ```
@@ -396,6 +396,8 @@ venv\Scripts\activate         # Windows
 3. Instale as bibliotecas necessárias:
 ```
 pip install -r requirements.txt
+```
+4. Site do monitor: https://global-solitions-2025-1-9d98617fa99b.herokuapp.com
 ```
 
 🔧 1. Preparar o Dispositivo Sensor
